@@ -1,0 +1,157 @@
+:root {
+  color-scheme: light dark;
+  --bg: #ffffff;
+  --ink: #111815;
+  --soft: #57606a;
+  --line: #d8dee4;
+  --link: #15803d;
+  --green: #16a34a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --ink: #f0f3f6;
+    --soft: #9198a1;
+    --line: #30363d;
+    --link: #4ade80;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--ink);
+  font: 17px/1.55 Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.sprite {
+  position: absolute;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  padding: 48px max(6vw, 16px, env(safe-area-inset-right));
+  padding-left: max(6vw, 16px, env(safe-area-inset-left));
+  text-align: center;
+}
+
+.logo {
+  margin: 0;
+  line-height: 0;
+}
+
+.logo img {
+  width: clamp(170px, 22vw, 246px);
+  height: auto;
+}
+
+.intro {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: min(560px, 100%);
+  text-align: left;
+}
+
+.photo {
+  display: block;
+  flex: none;
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px var(--green);
+}
+
+.intro p {
+  margin: 0;
+  font-size: clamp(17px, 1.5vw, 19px);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.links a:hover {
+  border-color: var(--link);
+  color: var(--link);
+}
+
+.links a:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
+}
+
+.links svg {
+  width: 17px;
+  height: 17px;
+  flex: none;
+  fill: currentColor;
+}
+
+footer {
+  padding: 24px 16px calc(24px + env(safe-area-inset-bottom));
+  color: var(--soft);
+  font-size: 14px;
+  text-align: center;
+}
+
+.error h1 {
+  margin: 0;
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.error p {
+  margin: 0;
+  color: var(--soft);
+}
+
+.error a {
+  color: var(--link);
+}
+
+@media (max-width: 420px) {
+  .intro {
+    flex-direction: column;
+    text-align: center;
+  }
+}
